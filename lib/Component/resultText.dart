@@ -12,23 +12,16 @@ class ResultText extends StatelessWidget {
     return Container(
       alignment: Alignment.centerRight,
       margin: EdgeInsets.only(right: 20),
-      child: Text(
-        text,
-        style: textType == TextType.title
-            ? Theme.of(context)
-                .textTheme
-                .headline2
-                .copyWith(color: Theme.of(context).primaryColor)
-            : (textType == TextType.subtitle
-                ? Theme.of(context)
-                    .textTheme
-                    .headline3
-                    .copyWith(color: Theme.of(context).primaryColor)
-                : Theme.of(context)
-                    .textTheme
-                    .headline4
-                    .copyWith(color: Theme.of(context).primaryColor)),
-      ),
+      child: Text(text,
+          style: textType == TextType.title
+              ? Theme.of(context)
+                  .textTheme
+                  .headline2
+                  .copyWith(color: Theme.of(context).primaryColor)
+              : Theme.of(context)
+                  .textTheme
+                  .headline3
+                  .copyWith(color: Theme.of(context).primaryColor)),
     );
   }
 }

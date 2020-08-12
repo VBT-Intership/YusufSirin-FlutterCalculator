@@ -1,1 +1,1 @@
-enum TextType { title, subtitle, listtitle }
+enum TextType { title, subtitle }
