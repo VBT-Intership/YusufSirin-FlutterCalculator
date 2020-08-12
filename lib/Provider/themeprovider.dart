@@ -1,4 +1,3 @@
-import 'package:calculator/Util/Theme/darktheme.dart';
 import 'package:calculator/Util/Theme/lighttheme.dart';
 import 'package:flutter/material.dart';
 

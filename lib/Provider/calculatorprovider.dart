@@ -66,6 +66,9 @@ class CalculatorViewProvider extends ChangeNotifier {
       case "/":
         _result = first.divided(second);
         break;
+      case "%":
+        _result = first.remainder(second).toString();
+        break;
     }
   }
 }
