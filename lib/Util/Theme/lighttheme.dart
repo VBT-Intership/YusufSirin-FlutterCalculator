@@ -6,4 +6,4 @@ final ThemeData lightTheme = ThemeData(
     backgroundColor: AppColors.kWhite,
     primaryColor: AppColors.kBlack,
     accentColor: AppColors.kYellow,
-    scaffoldBackgroundColor: AppColors.kYellow);
+    scaffoldBackgroundColor: AppColors.kWhite);

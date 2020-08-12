@@ -8,6 +8,20 @@ class CalculatorView extends StatefulWidget {
 class _CalculatorViewState extends State<CalculatorView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: SizedBox(
+        width: double.infinity,
+        height: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            GridView.count(
+              crossAxisCount: 4,
+              children: [],
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
