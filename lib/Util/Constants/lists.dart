@@ -21,4 +21,5 @@ class AppList {
     ".",
     "=",
   ];
+  static const fouroperations = ["+", "-", "*", "/", "%"];
 }

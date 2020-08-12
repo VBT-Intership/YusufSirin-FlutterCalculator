@@ -14,4 +14,8 @@ extension FourOperations on double {
   String divided(double a) {
     return (this / a).toString();
   }
+
+  String remainder(double a) {
+    return (this % a).toString();
+  }
 }

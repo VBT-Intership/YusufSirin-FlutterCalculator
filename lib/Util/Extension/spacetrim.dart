@@ -1,9 +1,10 @@
+import 'package:calculator/Util/Constants/lists.dart';
+
 extension SpaceTrim on String {
   List<String> spaceTrim() {
     var text = this.trim().replaceAll(" ", "");
     String operation;
-    var fouroperations = ["+", "-", "*", "/"];
-    fouroperations.forEach((element) {
+    AppList.fouroperations.forEach((element) {
       if (text.contains(element)) {
         operation = element;
       }
