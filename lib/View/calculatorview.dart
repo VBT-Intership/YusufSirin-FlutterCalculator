@@ -1,6 +1,8 @@
 import 'package:calculator/Component/CalculatorButton.dart';
+import 'package:calculator/Provider/calculatorprovider.dart';
 import 'package:calculator/Util/Constants/lists.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CalculatorView extends StatefulWidget {
   @override
@@ -18,23 +20,28 @@ class _CalculatorViewState extends State<CalculatorView> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            GridView.builder(
-              shrinkWrap: true,
-              itemCount: AppList.buttonName.length,
-              gridDelegate:
-                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
-              itemBuilder: (context, index) {
-                return CalculatorButton(
-                  text: AppList.buttonName[index],
-                  onTap: () {
-                    print(AppList.buttonName[index]);
-                  },
-                );
-              },
-            ),
+            calGridView(),
           ],
         ),
       ),
+    );
+  }
+
+  GridView calGridView() {
+    return GridView.builder(
+      shrinkWrap: true,
+      itemCount: AppList.buttonName.length,
+      gridDelegate:
+          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
+      itemBuilder: (context, index) {
+        return CalculatorButton(
+          text: AppList.buttonName[index],
+          onTap: () {
+            Provider.of<CalculatorViewProvider>(context, listen: false)
+                .pushButton(AppList.buttonName[index]);
+          },
+        );
+      },
     );
   }
 }
