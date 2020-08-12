@@ -4,33 +4,38 @@ import 'package:calculator/Util/Extension/spacetrim.dart';
 import 'package:flutter/material.dart';
 
 class CalculatorViewProvider extends ChangeNotifier {
-  List<String> _allResult = [];
   String _operationText = "", _result = "";
+  bool _resultShow = false;
 
   String get result => _result;
-  List<String> get allResult => _allResult;
+  String get operationText => _operationText;
 
   void pushButton(String button) {
     if (button == "=") {
       if (_isOperationContains(_operationText) &&
           !_isOperationContains(_operationText[_operationText.length - 1])) {
-        print("işlem yap");
         _operation();
-      } else {
-        print("işlem yapma");
-      }
+        _resultShow = true;
+      } else {}
     } else if (button == "Sil") {
       if (_operationText.length > 0) {
         _operationText = _operationText.substring(0, _operationText.length - 1);
       }
+      _resultShow = false;
     } else if (button == "AC") {
       _operationText = "";
+      _result = "";
     } else if (AppList.fouroperations.contains(button) &&
         _isOperationContains(_operationText)) {
     } else {
+      if (_resultShow) {
+        _operationText = "";
+        _resultShow = false;
+        print("object");
+      }
       _operationText = _operationText + button;
     }
-    print(_result);
+    notifyListeners();
   }
 
   bool _isOperationContains(String text) {

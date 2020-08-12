@@ -1,6 +1,8 @@
 import 'package:calculator/Component/CalculatorButton.dart';
+import 'package:calculator/Component/resultText.dart';
 import 'package:calculator/Provider/calculatorprovider.dart';
 import 'package:calculator/Util/Constants/lists.dart';
+import 'package:calculator/Util/Enum/texttype.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -20,6 +22,13 @@ class _CalculatorViewState extends State<CalculatorView> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
+            Spacer(),
+            ResultText(
+                textType: TextType.subtitle,
+                text:
+                    Provider.of<CalculatorViewProvider>(context).operationText),
+            ResultText(
+                text: Provider.of<CalculatorViewProvider>(context).result),
             calGridView(),
           ],
         ),
